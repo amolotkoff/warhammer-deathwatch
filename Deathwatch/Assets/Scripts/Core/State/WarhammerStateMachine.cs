@@ -26,7 +26,7 @@ namespace Warhammer.State
         /*
          * S0 -> S1
          */
-        public WarhammerStateMachine Add<S0, S1>(bool bidirectional) where S0 : WarhammerState where S1 : WarhammerState
+        public WarhammerStateMachine AddTransition<S0, S1>(bool bidirectional = false) where S0 : WarhammerState where S1 : WarhammerState
         {
             if (!states.TryGetValue(typeof(S0), out var s0))
                 throw new KeyNotFoundException($"State:{typeof(S0)} does not exist in state machine");
